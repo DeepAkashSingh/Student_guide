@@ -139,7 +139,7 @@ export default {
   methods: {
     loadData() {
       // this.instituteList = this.apis.instituteList;
-      const url = "http://localhost:8000/api/courseList";
+      const url = "https://techebiz.com/student_guide/api/courseList";
       axios
         .get(url, {
           // params: {
@@ -151,7 +151,8 @@ export default {
           // alert(this.list.length);
         });
       // instituteData
-      const institute_url = "http://localhost:8000/api/instituteList";
+      const institute_url =
+        "https://techebiz.com/student_guide/api/instituteList";
       axios
         .get(institute_url, {
           // params: {

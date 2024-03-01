@@ -46,7 +46,7 @@ export default {
       formData.append("email", this.formdata.email);
       formData.append("mobile", this.formdata.mobile);
 
-      const url = "http://localhost:8000/api/registerUser";
+      const url = "https://techebiz.com/student_guide/api/registerUser";
       axios.post(url, formData).then((response) => {
         // console.log(response);
         alert(response.data.msg);

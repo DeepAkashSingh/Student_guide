@@ -152,7 +152,7 @@ export default {
       formData.append("status", this.formdata.status);
       formData.append("password", this.formdata.password);
 
-      const url = "http://localhost:8000/api/registerUser";
+      const url = "https://techebiz.com/student_guide/api/registerUser";
       axios
         .post(url, formData) //Product/listCategories?token="+localStorage.token)
         .then((response) => {

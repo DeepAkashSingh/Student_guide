@@ -97,7 +97,7 @@ export default {
     };
   },
   mounted() {
-    this.IsLogin = ge.getItem("IsLogin");
+    this.IsLogin = localStorage.getItem("IsLogin");
     this.fname = localStorage.getItem("fName");
     this.lname = localStorage.getItem("lName");
     this.role = localStorage.getItem("role");

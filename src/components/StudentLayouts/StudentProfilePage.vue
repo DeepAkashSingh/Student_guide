@@ -160,7 +160,7 @@ export default {
       formData.append("description", this.formdata.description);
       // formData.append("user_id", this.formdata.user_id);
 
-      const url = "http://localhost:8000/api/saveProfile";
+      const url = "https://techebiz.com/student_guide/api/saveProfile";
       axios
         .post(url, formData) //Product/listCategories?token="+localStorage.token)
         .then((response) => {

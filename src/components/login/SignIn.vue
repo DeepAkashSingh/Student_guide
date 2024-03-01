@@ -92,7 +92,7 @@ export default {
       if (this.user == "" && this.pass == "") {
         alert("Please Enter Username and Password!");
       } else {
-        const url = "http://localhost:8000/api/loginUser";
+        const url = "https://techebiz.com/student_guide/api/loginUser";
 
         const formData = new FormData();
 

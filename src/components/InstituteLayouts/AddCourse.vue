@@ -176,7 +176,7 @@ export default {
       formData.append("intake", this.formdata.intake);
       formData.append("tution_fees", this.formdata.tution_fees);
 
-      const url = "http://localhost:8000/api/saveCourse";
+      const url = "https://techebiz.com/student_guide/api/saveCourse";
       axios
         .post(url, formData) //Product/listCategories?token="+localStorage.token)
         .then((response) => {

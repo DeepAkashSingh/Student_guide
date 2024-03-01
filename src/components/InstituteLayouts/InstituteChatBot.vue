@@ -60,7 +60,7 @@ export default {
       formData.append("last_name", this.formdata.last_name);
       formData.append("message", this.formdata.message);
 
-      const url = "http://localhost:8000/api/registerUser";
+      const url = "https://techebiz.com/student_guide/api/registerUser";
       axios.post(url, formData).then((response) => {
         // console.log(response);
         alert(response.data.msg);
