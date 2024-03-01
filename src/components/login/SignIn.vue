@@ -81,7 +81,7 @@ export default {
   },
   methods: {
     saveData(user, fname, lname, role, islogin) {
-      localStorage.setItem("userName", user);
+      localStorage.setItem("user_id", user);
       localStorage.setItem("fName", fname);
       localStorage.setItem("lName", lname);
       localStorage.setItem("role", role);
