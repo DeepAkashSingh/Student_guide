@@ -32,6 +32,7 @@ import InstituteProfilePage from "@/components/InstituteLayouts/InstituteProfile
 import InstitutePanel from "@/components/InstituteLayouts/InstitutePanel.vue";
 import LearningPrefrences from "@/components/StudentLayouts/LearningPrefrences.vue";
 import MyCoursesList from "@/components/StudentLayouts/MyCoursesList.vue";
+import ProfilePage from "@/components/login/ProfilePage.vue";
 import RecommendedCourses from "../components/StudentLayouts/RecommendedCourses.vue";
 import SignIn from "../components/login/SignIn.vue";
 import SignUp from "../components/login/SignUp.vue";
@@ -186,6 +187,10 @@ const routesUrl = [
   {
     path: "/MyCoursesList",
     component: MyCoursesList,
+  },
+  {
+    path: "/ProfilePage",
+    component: ProfilePage,
   },
   {
     path: "/RecommendedCourses",

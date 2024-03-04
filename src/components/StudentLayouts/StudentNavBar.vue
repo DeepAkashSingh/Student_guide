@@ -4,11 +4,12 @@
     <router-link to="MyCoursesList">My Courses</router-link>
     <router-link to="StudentRanking">Rankings</router-link>
     <router-link to="StudentChatBot">Chat Support</router-link>
-    <router-link to="StudentFeedbackList">FeedbackList</router-link>
+    <router-link to="StudentFeedbackList">Feedback List</router-link>
     <router-link to="LearningPrefrences">Learning Prefrences</router-link>
     <router-link to="RecommendedCourses">Recommended Courses</router-link>
     <router-link to="EducationBackground">Education Background</router-link>
     <router-link to="StudentChangePassword">Change Password</router-link>
+    <router-link to="ProfilePage">Profile Page</router-link>
   </nav>
 </template>
 <script>

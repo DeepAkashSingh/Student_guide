@@ -142,12 +142,37 @@ export default {
         dob: "",
         website: "",
         description: "",
-        // user_id: "",
       },
       user_id: "0",
     };
   },
+
+  mounted() {
+    this.userid = localStorage.getItem("user_id");
+    this.loadData();
+    //   alert(this.userid);
+  },
+
   methods: {
+    loadData() {
+      this.userid = localStorage.getItem("user_id");
+      const url = "https://www.techebiz.com/student_guide/api/saveProfile";
+      axios
+        .get(url, {
+          params: {
+            user_id: this.userid,
+          },
+        }) //Product/listCategories?token="+localStorage.token)
+        .then((response) => {
+          // console.log(response);
+          let userData = response.data[0];
+          this.formdata.first_name = userData.first_name;
+          this.formdata.last_name = userData.last_name;
+          this.formdata.email = userData.email;
+          this.formdata.mobile = userData.mobile;
+        });
+    },
+
     saveData() {
       const formData = new FormData();
 
