@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import AboutUs from "@/components/Layouts/AboutUs.vue";
+// import AboutUs from "@/components/Layouts/AboutUs.vue";
 import AddCourse from "@/components/InstituteLayouts/AddCourse.vue";
 import AdminChangePassword from "@/components/AdminLayouts/AdminChangePassword.vue";
 import AdminChatBot from "@/components/AdminLayouts/AdminChatBot.vue";
@@ -48,6 +49,7 @@ import StudentNavBar from "@/components/StudentLayouts/StudentNavBar.vue";
 import StudentProfilePage from "@/components/StudentLayouts/StudentProfilePage.vue";
 import StudentPanel from "@/components/StudentLayouts/StudentPanel.vue";
 import StudentRanking from "@/components/StudentLayouts/StudentRanking.vue";
+import TestFile from "@/components/TestFile.vue";
 const routesUrl = [
   {
     path: "/",
@@ -56,6 +58,10 @@ const routesUrl = [
   {
     path: "/SignIn",
     component: SignIn,
+  },
+  {
+    path: "/test",
+    component: TestFile,
   },
   {
     path: "/SignUp",

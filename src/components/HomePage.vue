@@ -1,6 +1,7 @@
 <template>
   <MainPageLayout>
     <FindCourses />
+    <router-link to="test">Test page </router-link>
     <div class="contact-section w100">
       <div class="heading">
         <div class="top-header">
