@@ -76,30 +76,7 @@
               required
             />
           </div>
-          <div class="ls-form d-flex f-col">
-            <label class="ls-label" for="website">Website</label>
-            <input
-              type="text"
-              placeholder="Enter Website"
-              name="website"
-              id="website"
-              class="input"
-              v-model="formdata.website"
-              required
-            />
-          </div>
-          <div class="ls-form d-flex f-col">
-            <label class="ls-label" for="description">Description</label>
-            <input
-              type="text"
-              placeholder="Enter Description"
-              name="description"
-              id="description"
-              class="input"
-              v-model="formdata.description"
-              required
-            />
-          </div>
+
           <div class="ls-form d-flex f-col">
             <label class="ls-label" for="user_id">User Id</label>
             <input
@@ -108,7 +85,7 @@
               name="user_id"
               id="user_id"
               class="input"
-              v-model="formdata.user_id"
+              v-model="userid"
               required
             />
           </div>
@@ -135,69 +112,75 @@ export default {
   components: { StudentPanel },
   data() {
     return {
+      isEmpty: true,
       formdata: {
         address: "",
         pincode: "",
         gender: "",
+        male: "",
+        female: "",
+        other: "",
         dob: "",
-        website: "",
-        description: "",
       },
-      user_id: "0",
+      userid: "",
     };
   },
 
   mounted() {
     this.userid = localStorage.getItem("user_id");
     this.loadData();
-    //   alert(this.userid);
+    alert("user = " + this.userid);
   },
 
   methods: {
     loadData() {
-      this.userid = localStorage.getItem("user_id");
-      const url = "https://www.techebiz.com/student_guide/api/saveProfile";
+      const url = "https://www.techebiz.com/student_guide/api/profileList";
+      alert(url);
       axios
         .get(url, {
           params: {
             user_id: this.userid,
           },
-        }) //Product/listCategories?token="+localStorage.token)
+        })
         .then((response) => {
           // console.log(response);
+
           let userData = response.data[0];
-          this.formdata.first_name = userData.first_name;
-          this.formdata.last_name = userData.last_name;
-          this.formdata.email = userData.email;
-          this.formdata.mobile = userData.mobile;
+          this.isEmpty = response.data.length > 0 ? false : true;
+          alert(this.isEmpty);
+          if (!this.isEmpty) {
+            this.formdata.address = userData.address;
+            this.formdata.pincode = userData.pincode;
+            this.formdata.gender = userData.gender;
+            this.formdata.male = userData.male;
+            this.formdata.female = userData.female;
+            this.formdata.other = userData.other;
+            this.formdata.dob = userData.dob;
+          }
         });
     },
 
     saveData() {
       const formData = new FormData();
+      // this.userid = localStorage.getItem("user_id");
+      alert(this.userid);
+      formData.append("user_id", this.userid);
 
-      formData.append("user_id", this.user_id);
       formData.append("address", this.formdata.address);
       formData.append("pincode", this.formdata.pincode);
       formData.append("gender", this.formdata.gender);
+      formData.append("male", this.formdata.male);
+      formData.append("female", this.formdata.female);
+      formData.append("other", this.formdata.other);
       formData.append("dob", this.formdata.dob);
-      formData.append("website", this.formdata.website);
-      formData.append("description", this.formdata.description);
+
       // formData.append("user_id", this.formdata.user_id);
 
       const url = "https://techebiz.com/student_guide/api/saveProfile";
       axios
         .post(url, formData) //Product/listCategories?token="+localStorage.token)
         .then((response) => {
-          // console.log(response);
-          alert(response.data.msg);
-          this.formdata.address = "";
-          this.formdata.pincode = "";
-          this.formdata.gender = "";
-          this.formdata.dob = "";
-          this.formdata.website = "";
-          this.formdata.description = "";
-          // this.formdata.user_id = "";
+          console.log(response);
         });
     },
   },
