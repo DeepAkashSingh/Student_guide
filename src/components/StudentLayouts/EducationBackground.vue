@@ -130,15 +130,18 @@ export default {
       },
     };
   },
-
+  mounted() {
+    this.frm.user_id = localStorage.getItem("user_id");
+  },
   methods: {
     saveData() {
       const formData = new FormData();
-      this.frm.user_id = localStorage.getItem("user_id");
+
+      formData.append("user_id", this.frm.user_id);
       formData.append("qualification", this.frm.qualification);
       formData.append("stream", this.frm.stream);
       formData.append("passing_year", this.frm.passing_year);
-      formData.append("passing_institue", this.frm.passing_institute);
+      formData.append("passing_institute", this.frm.passing_institute);
       formData.append("grades", this.frm.grades);
       formData.append("achivements", this.frm.achivements);
       formData.append("status", this.frm.status);
@@ -148,13 +151,13 @@ export default {
         alert(response.data.msg);
 
         this.frm.user_id = "";
-        this.formData.qualification = "";
-        this.formData.stream = "";
-        this.formData.passing_year = "";
-        this.formData.passing_institute = "";
-        this.formData.grades = "";
-        this.formData.achivements = "";
-        this.formData.status = "";
+        this.frm.qualification = "";
+        this.frm.stream = "";
+        this.frm.passing_year = "";
+        this.frm.passing_institute = "";
+        this.frm.grades = "";
+        this.frm.achivements = "";
+        this.frm.status = "";
       });
     },
   },
